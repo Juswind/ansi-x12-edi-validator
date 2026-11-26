@@ -51,9 +51,9 @@ As a **Senior Business Analyst**, I conceptualized and built this application to
 
 
   **(Update the repository URL above if you name your GitHub repo differently.)
-**2. Open the project in Android Studio.
-**3. Copy .env.example to .env (or add your key to local.properties) and configure your own Gemini API key:GEMINI_API_KEY=your_api_key_here
-**4. Build and run on an Android device or emulator.
+2. **Open the project in Android Studio.
+3. **Copy .env.example to .env (or add your key to local.properties) and configure your own Gemini API key:GEMINI_API_KEY=your_api_key_here
+4. **Build and run on an Android device or emulator.
 
 ## About the Author
 Andrews Rajkumar — Senior Business Analyst | Supply Chain, ERP & TMS Workflows | CargoWise Certified Professional (CCP)
