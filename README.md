@@ -1,0 +1,1 @@
+# ansi-x12-edi-validator
