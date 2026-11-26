@@ -1,22 +1,68 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://ai.google.dev/static/site-assets/images/share-ais-513315318.png" />
-</div>
+# ANSI X12 (004010) EDI Validator App
 
-# Run and deploy your AI Studio app
+A mobile utility designed for supply chain analysts, EDI specialists, and logistics operations teams to audit **ANSI ASC X12 (Version 004010)** payloads for structural envelope integrity and mandatory segment rules before partner UAT or production transmission.
 
-This contains everything you need to run your app locally.
+---
 
-View your app in AI Studio: https://ai.studio/apps/39df2584-d48b-40e8-8b3f-6d5bb87b8093
+## Business Problem & Functional Context
 
-## Run Locally
+In global freight forwarding and B2B supply chain integrations, malformed EDI files—such as mismatched control numbers, truncated segments, or missing mandatory qualifiers—frequently stall partner testing and cause shipment milestone failures. 
 
-**Prerequisites:**  [Android Studio](https://developer.android.com/studio)
+As a **Senior Business Analyst**, I conceptualized and built this application to shift EDI validation left: enabling functional analysts and onboarding teams to catch structural and business-rule defects immediately on mobile before engaging middleware developers or external trading partners.
+
+---
+
+## Key Capabilities
+
+* **Control Envelope Auditing:** Validates structural pairing and control number consistency across `ISA/IEA` (Interchange), `GS/GE` (Functional Group), and `ST/SE` (Transaction Set) envelopes, including segment counts (`SE01`).
+* **Transaction-Specific Rule Validation:** Enforces mandatory segment presence and qualifier rules tailored to logistics and retail supply chain transaction sets.
+* **Human-Readable Segment Decoding:** Translates raw X12 segment tags (e.g., `B10`, `AT7`, `N1`, `TD5`, `BSN`, `HL`, `PO1`) into clear functional descriptions for faster root-cause analysis.
+* **Actionable Defect Reporting:** Highlights exact line/segment failures with clear remediation guidance so analysts can resolve payload errors without manual line-by-line inspection.
+
+---
+
+## Supported ANSI X12 Transaction Sets (Version 004010)
+
+| Transaction Set | Standard Name | Primary Supply Chain Use Case |
+| :--- | :--- | :--- |
+| **110** | Air Freight Details and Invoice | Air carrier freight billing and charge breakdowns |
+| **210** | Motor Carrier Freight Details and Invoice | Road/trucking freight invoicing and rate validation |
+| **214** | Transportation Carrier Shipment Status | Real-time transit milestones, pickup, and delivery updates |
+| **310** | Ocean Freight Details and Invoice | Ocean carrier bill of lading and freight charge invoicing |
+| **315** | Status Details (Ocean) | Container milestone events (gate-in, vessel departure, arrival, customs release) |
+| **850** | Purchase Order | Retail/shipper order initiation and SKU/quantity specifications |
+| **856** | Ship Notice / Manifest (ASN) | Advance shipment notifications and hierarchical packaging details |
+
+---
+
+## Tech Stack
+
+* **Language & UI:** Kotlin, Jetpack Compose (Android)
+* **AI & Validation Engine:** Google AI Studio / Gemini API (Structured Outputs)
+* **Domain Standards:** ANSI ASC X12 Version 004010
+
+---
+
+## Local Setup & Configuration
+
+1. Clone this repository:
+   ```bash
+   git clone [https://github.com/Juswind/ansi-x12-edi-validator.git](https://github.com/Juswind/ansi-x12-edi-validator.git)
 
 
-1. Open Android Studio
-2. Select **Open** and choose the directory containing this project
-3. Allow Android Studio to fix any incompatibilities as it imports the project.
-4. Create a file named `.env` in the project directory and set `GEMINI_API_KEY` in that file to your Gemini API key (see `.env.example` for an example)
-5. Remove this line from the app's `build.gradle.kts` file: `signingConfig = signingConfigs.getByName("debugConfig")`
-6. Run the app on an emulator or physical device
-7. If you have already published your app in AI Studio, please [request upload key reset](https://support.google.com/googleplay/android-developer/answer/9842756#zippy=%2Crequest-an-upload-key-reset) in Google Play Console.
+1. Open the project in Android Studio.
+
+2. Copy .env.example to .env (or add your key to local.properties) and configure your own Gemini API key if testing AI-assisted diagnostics:
+
+
+  "GEMINI_API_KEY=your_api_key_here"
+3. Build and run on an Android emulator or physical device.
+
+About the Author
+Andrews Rajkumar — Senior Business Analyst | Supply Chain, ERP & TMS Workflows | CargoWise Certified Professional (CCP)
+
+Portfolio: juswind.github.io
+
+LinkedIn: linkedin.com/in/andrews-rajkumar-393378249
+
+YouTube: @AndrewsRajkumarEDI
