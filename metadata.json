@@ -1,0 +1,6 @@
+{
+  "name": "EDI X12 Validator",
+  "description": "ANSI ASC X12 004010 EDI validator, parser and semantic extractor supporting 110, 210, 214, 310, 315, 850, and 856 with strict JSON output.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
